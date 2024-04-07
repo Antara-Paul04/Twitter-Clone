@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/widgets/tweet.dart';
 import 'package:twitter_clone/pages/profilepage.dart';
+import 'package:twitter_clone/widgets/navdrawer.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -8,6 +9,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  bool isDrawerOpened = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +27,9 @@ class _HomepageState extends State<Homepage> {
               children: [
                 IconButton(
                   onPressed: () {
-                    print("nav pressed");
+                    setState(() {
+                      isDrawerOpened = !isDrawerOpened;
+                    });
                   },
                   icon: Icon(
                     Icons.menu,
@@ -34,20 +39,19 @@ class _HomepageState extends State<Homepage> {
                 ),
                 Spacer(),
                 GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Profile()),
-                      );
-                    },
-                    child: CircleAvatar(
-                      radius: 20,
-                      backgroundImage: NetworkImage(
-                        'https://i.pinimg.com/564x/b0/75/f8/b075f8b232d3bf57d41893afa5070597.jpg',
-                      ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  },
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundImage: NetworkImage(
+                      'https://i.pinimg.com/564x/b0/75/f8/b075f8b232d3bf57d41893afa5070597.jpg',
                     ),
                   ),
-
+                ),
               ],
             ),
             Tweet(),
@@ -64,7 +68,7 @@ class _HomepageState extends State<Homepage> {
         ),
         child: Icon(Icons.edit_outlined, color: Color.fromARGB(255, 255, 255, 255), size: 30),
       ),
-      
-    );
+      drawer: isDrawerOpened ? NavDrawer() : null
+      );
   }
 }
