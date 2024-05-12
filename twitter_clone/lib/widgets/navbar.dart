@@ -39,8 +39,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
           Text(
             title,
             style: TextStyle(
-              color: _selectedIndex == index ? Colors.red : Colors.black,
-              fontWeight: _selectedIndex == index ? FontWeight.bold : FontWeight.normal,
+              color: Colors.black,
+              fontWeight: FontWeight.w400,
             ),
           ),
           SizedBox(height: 4.0),
