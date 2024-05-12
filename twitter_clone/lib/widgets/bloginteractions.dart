@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Interactions extends StatefulWidget {
+  final bool isDarkModeEnabled;
+
+  Interactions({Key? key, required this.isDarkModeEnabled}) : super(key: key);
+
   @override
   _MyStatefulWidget createState() => _MyStatefulWidget();
 }
@@ -28,9 +32,9 @@ class _MyStatefulWidget extends State<Interactions> {
             children: [
               Icon(
                 isLiked ? Icons.favorite : Icons.favorite_border_outlined,
-                color: isLiked ? Colors.red : Color(0xFFF91A1A),
+                color: Color(0xFFF91A1A),
               ),
-              Text('$likes'),
+              Text('$likes', style: TextStyle(color: widget.isDarkModeEnabled ? Colors.white : Colors.black)),
             ],
           ),
         ),
@@ -38,14 +42,20 @@ class _MyStatefulWidget extends State<Interactions> {
         Column(
           children: [
             Icon(Icons.chat_bubble_outline, color: Color(0xFFF91A1A)),
-            Text('34'),
+            Text(
+              '34',
+              style: TextStyle(color: widget.isDarkModeEnabled ? Colors.white : Colors.black),
+            ),
           ],
         ),
         SizedBox(width: 15),
         Column(
           children: [
             Icon(Icons.repeat, color: Color(0xFFF91A1A)),
-            Text('56'),
+            Text(
+              '56',
+              style: TextStyle(color: widget.isDarkModeEnabled ? Colors.white : Colors.black),
+            ),
           ],
         ),
       ],

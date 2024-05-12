@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/pages/homepage.dart';
+import 'package:twitter_clone/pages/profilepage.dart';
 
 class CustomNavBar extends StatefulWidget {
+  final bool isDarkModeEnabled;
+
+  CustomNavBar({Key? key, required this.isDarkModeEnabled}) : super(key: key);
+
   @override
   _CustomNavBarState createState() => _CustomNavBarState();
 }
@@ -11,6 +17,20 @@ class _CustomNavBarState extends State<CustomNavBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Homepage()),
+          );
+          break;
+        case 1:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Profile()),
+          );
+          break;
+      }
     });
   }
 
@@ -39,7 +59,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
           Text(
             title,
             style: TextStyle(
-              color: Colors.black,
+              color: widget.isDarkModeEnabled ? Colors.white : Colors.black,
               fontWeight: FontWeight.w400,
             ),
           ),

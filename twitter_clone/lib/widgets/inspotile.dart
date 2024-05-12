@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class InspoWidget extends StatelessWidget {
+  final bool isDarkModeEnabled;
   final String category;
 
-  const InspoWidget({Key? key, required this.category}) : super(key: key);
-
+  const InspoWidget({Key? key, required this.category, required this.isDarkModeEnabled}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -12,7 +13,7 @@ class InspoWidget extends StatelessWidget {
         print('Button tapped for category: $category');
       },
       child: Card(
-        color: Colors.white,
+        color: isDarkModeEnabled?Color(0xFF282828): Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
