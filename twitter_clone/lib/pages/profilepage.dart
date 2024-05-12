@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/widgets/tweet.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -95,7 +94,6 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                child: Tweet(),
               ),
             ],
           ),
