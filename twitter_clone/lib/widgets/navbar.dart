@@ -24,12 +24,6 @@ class _CustomNavBarState extends State<CustomNavBar> {
             MaterialPageRoute(builder: (context) => Homepage()),
           );
           break;
-        case 1:
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => Profile()),
-          );
-          break;
       }
     });
   }
